@@ -1,8 +1,40 @@
 <template>
   <div>
-    <Nuxt />
+    <el-container>
+      <el-header v-if="layoutShow" class="header-box">
+        <!-- <page-header></page-header> -->
+      </el-header>
+      <el-main>
+        <Nuxt />
+      </el-main>
+      <el-footer v-if="layoutShow" height="120px">
+        <!-- <page-footer></page-footer> -->
+      </el-footer>
+    </el-container>
+    <el-backtop></el-backtop>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      layoutShow: true,
+    }
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+.header-box {
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  padding: 0;
+  background: #fff;
+}
+</style>
 
 <style>
 html {
@@ -22,34 +54,5 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
 }
 </style>

@@ -49,4 +49,7 @@ export default {
   build: {
     transpile: [/^element-ui/],
   },
+  server: {
+    port: 8089, // default: 3000
+  },
 }
