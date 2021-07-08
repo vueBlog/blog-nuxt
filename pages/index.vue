@@ -26,7 +26,22 @@
 </template>
 
 <script>
-export default {}
+export default {
+  async asyncData({ store, query, req, res }) {
+    let asideList
+    if (!store.state.asideList.length) {
+      asideList = await store.dispatch('getAsideList')
+    } else {
+      asideList = store.state.asideList
+    }
+    return {
+      asideList,
+    }
+  },
+  mounted() {
+    console.log(this.$store.state.asideList)
+  },
+}
 </script>
 
 <style>
