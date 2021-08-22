@@ -1,40 +1,43 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: process.env.VUE_APP_title || '',
+    title: process.env.NUXT_ENV_title || '',
+    htmlAttrs: {
+      lang: 'zh-cn',
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'keywords',
         name: 'keywords',
-        content: process.env.VUE_APP_keywords || '',
+        content: process.env.NUXT_ENV_keywords || '',
       },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.VUE_APP_description || '',
+        content: process.env.NUXT_ENV_description || '',
       },
       {
         hid: 'author',
         name: 'author',
-        content: process.env.VUE_APP_author || '',
+        content: process.env.NUXT_ENV_author || '',
       },
     ],
     link: [
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: `${process.env.VUE_APP_router_base}/favicon.ico`,
+        href: `${process.env.NUXT_ENV_router_base}/favicon.ico`,
       },
     ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['element-ui/lib/theme-chalk/index.css'],
+  css: ['element-ui/lib/theme-chalk/index.css', '@/style/common.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/element-ui', '@/plugins/axios'],
+  plugins: ['@/plugins/element-ui', '@/plugins/axios', '@/plugins/moment'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -62,24 +65,24 @@ export default {
   },
   proxy: {
     '/api': {
-      target: process.env.VUE_APP_host,
+      target: process.env.NUXT_ENV_host,
       ws: true,
       changeOrigin: true,
     },
   },
 
   router: {
-    base: process.env.VUE_APP_router_base,
-    scrollBehavior(to, from, savedPosition) {
-      if (savedPosition) {
-        return savedPosition
-      } else {
-        return {
-          x: 0,
-          y: 0,
-        }
-      }
-    },
+    base: process.env.NUXT_ENV_router_base,
+    // scrollBehavior(to, from, savedPosition) {
+    //   if (savedPosition) {
+    //     return savedPosition
+    //   } else {
+    //     return {
+    //       x: 0,
+    //       y: 0,
+    //     }
+    //   }
+    // },
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

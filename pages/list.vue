@@ -1,5 +1,11 @@
 <template>
   <div class="content">
+    <template v-if="columnInfo && columnInfo.columnTitle">
+      <div class="row ellipsis">专栏名称： {{ columnInfo.columnTitle }}</div>
+      <div class="row ellipsis">专栏介绍： {{ columnInfo.columnContent }}</div>
+      <div class="row ellipsis">文章总数： {{ columnInfo.columnNumber }}</div>
+      <div style="border-top: 1px solid #e6e6e6"></div>
+    </template>
     <div class="content-header clearfix">
       <el-checkbox v-model="justOriginal" @change="toJustOriginal"
         >仅看原创</el-checkbox
@@ -52,15 +58,18 @@
 import listArticleMixin from '@/mixins/listArticleMixin.js'
 
 export default {
-  name: 'Home',
+  name: 'List',
   mixins: [listArticleMixin],
   data() {
     return {}
   },
-  mounted() {},
+  methods: {},
 }
 </script>
 
 <style lang="scss" scoped>
 @import '@/style/views/home.scss';
+.row {
+  margin: 15px 0;
+}
 </style>

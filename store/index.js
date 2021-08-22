@@ -1,7 +1,27 @@
 export const state = () => ({
-  asideList: [], // 首页文章分类列表
-  authorList: [],
+  logoText: process.env.NUXT_ENV_title || '',
+  logoDescription: process.env.NUXT_ENV_description || '',
+  userInfo: {
+    id: '',
+    name: '',
+    email: '',
+    admin: '',
+    authority: 0,
+  },
+  userAgent: {
+    system: '',
+    browser: '',
+    browserVersion: '',
+    ip: '',
+    city: '',
+  },
 })
+
+export const getters = {
+  signStatus(state) {
+    return !!state.signIn.token
+  },
+}
 
 export const mutations = {
   setAsideList(state, arr) {
@@ -12,19 +32,4 @@ export const mutations = {
   },
 }
 
-export const actions = {
-  async getAsideList({ commit, state }) {
-    const result = await this.$axios.get('/api/vue-blog/aside')
-    if (result.isok) {
-      commit('setAsideList', result.data.list)
-      return result.data.list
-    }
-  },
-  async getAuthorList({ commit, state }) {
-    const result = await this.$axios.get('/api/vue-blog/aside/author')
-    if (result.isok) {
-      commit('setAuthorList', result.data)
-      return result.data
-    }
-  },
-}
+export const actions = {}

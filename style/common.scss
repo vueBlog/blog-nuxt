@@ -1,0 +1,97 @@
+@import './element-variables.scss';
+
+// 全局自定义样式
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "微软雅黑", "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  color: $--color-text-primary;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+$page-width: 1150px !default;
+$header-height: 60px !default;
+$logo-size: 34px !default;
+$theme-color: #333 !default;
+$theme-light-color: #666 !default;
+$border-color:#e6e6e6 !default;
+$split-line-color:#ddd !default;
+
+// 浮动
+.clearfix {
+
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right
+}
+
+// 定位
+@mixin position-base {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.full-fixed {
+  position: fixed;
+  @include position-base;
+}
+
+.full-absolute {
+  position: absolute;
+  @include position-base;
+}
+
+// flex
+@mixin flex {
+  display: flex;
+  align-items: center;
+}
+
+.flex-row {
+  @include flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  @include flex;
+  flex-direction: column;
+}
+
+// 字体
+.ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.no-data {
+  padding: 40px 20px;
+  color: $theme-color;
+  text-align: center;
+}
+
+
+.box-card + .box-card {
+  margin-top: 15px;
+}
