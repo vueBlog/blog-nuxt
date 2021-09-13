@@ -4,6 +4,7 @@ export const state = () => ({
   asideList: [],
   asideListLoading: false,
   asideAuthor: [],
+  asideAuthorLoading: false,
 })
 
 export const getters = {
@@ -22,6 +23,9 @@ export const mutations = {
   setAsideAuthor(state, value) {
     state.asideAuthor = value
   },
+  setAsideAuthorLoading(state, value) {
+    state.asideAuthorLoading = value
+  },
 }
 
 export const actions = {
@@ -35,8 +39,10 @@ export const actions = {
     }
   },
   async getAuthorList({ commit, state }) {
+    commit('setAsideAuthorLoading', true)
     const result = await this.$axios.get(api.getAsideAuthor)
     if (result.isok) {
+      commit('setAsideAuthorLoading', false)
       commit('setAsideAuthor', result.data)
       return result.data
     }
