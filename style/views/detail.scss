@@ -1,8 +1,9 @@
 @import './../common.scss';
 
 .detail {
+  padding: 0 20px;
   .detail-header {
-    padding: 15px;
+    padding: 15px 0;
     border-bottom: 1px solid $border-color;
     .title {
       max-width: 600px;

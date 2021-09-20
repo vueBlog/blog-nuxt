@@ -37,7 +37,7 @@
           :route="item.route"
           >{{ item.title }}</el-menu-item
         >
-        <template v-if="!signStatus">
+        <!-- <template v-if="!signStatus">
           <el-menu-item index="4" route="/signIn">登录</el-menu-item>
         </template>
         <template v-else>
@@ -71,7 +71,7 @@
             >
             <el-menu-item index="6-6" route="/signIn">退出</el-menu-item>
           </el-submenu>
-        </template>
+        </template> -->
       </el-menu>
     </div>
   </div>

@@ -15,4 +15,7 @@ export default {
 
   // column
   apiColumnDetail: `${apiBaseUrl}/column/detail`,
+
+  // detail
+  apiArticleDetail: `${apiBaseUrl}/article/detail`,
 }

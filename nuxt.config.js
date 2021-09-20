@@ -37,7 +37,15 @@ export default {
   css: ['element-ui/lib/theme-chalk/index.css', '@/style/common.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/element-ui', '@/plugins/axios', '@/plugins/moment'],
+  plugins: [
+    '@/plugins/element-ui',
+    '@/plugins/axios',
+    '@/plugins/moment',
+    {
+      src: '~/plugins/clipboard.js',
+      mode: 'client',
+    },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
