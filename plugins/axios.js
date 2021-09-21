@@ -4,7 +4,7 @@ export default function ({ $axios, redirect }) {
   // })
 
   $axios.onResponse((response) => {
-    if (response.status === 200) {
+    if (response.status === 200 && response.data.isok) {
       return response.data
     }
   })

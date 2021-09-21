@@ -18,4 +18,7 @@ export default {
 
   // detail
   apiArticleDetail: `${apiBaseUrl}/article/detail`,
+  apiAddStart: `${apiBaseUrl}/addStar`,
+
+  apiAddView: `${apiBaseUrl}/views/add`,
 }

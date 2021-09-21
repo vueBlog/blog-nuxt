@@ -45,6 +45,14 @@ export default {
       src: '~/plugins/clipboard.js',
       mode: 'client',
     },
+    {
+      src: '~/plugins/routerAfterEach.js',
+      mode: 'client',
+    },
+    {
+      src: '~/plugins/toMobile.js',
+      mode: 'client',
+    },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -68,7 +76,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     proxy: true,
-    retry: { retries: 3 },
+    // retry: { retries: 3 },
   },
   proxy: {
     '/api': {

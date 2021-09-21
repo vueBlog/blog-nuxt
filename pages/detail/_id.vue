@@ -176,17 +176,15 @@ export default {
   },
   methods: {
     async addStar() {
-      // const result = await apiAddStar({
-      //   articleId: this.$route.params.id * 1,
-      // })
-      // if (result.isok) {
-      //   this.$message({
-      //     message: 'Add star success',
-      //     type: 'success',
-      //     offset: 80,
-      //   })
-      //   this.info.articleStart = result.data.articleStart
-      // }
+      const result = await this.$axios.$post(api.apiAddStart, {
+        articleId: this.$route.params.id * 1,
+      })
+      this.$message({
+        message: 'Add star success',
+        type: 'success',
+        offset: 80,
+      })
+      this.info.articleStart = result.articleStart
     },
     pageScroll() {
       if (document.querySelector('.markdownIt-TOC')) {
@@ -237,7 +235,7 @@ export default {
     z-index: 100;
     padding-top: 50px;
     max-width: 380px;
-    max-height: calc(100vh - 168px);
+    max-height: calc(100vh - 350px);
     overflow-y: auto;
     &::before {
       position: fixed;
