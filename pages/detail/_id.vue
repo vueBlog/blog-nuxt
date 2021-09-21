@@ -201,15 +201,14 @@ export default {
     hashScroll() {
       if (this.$route.hash) {
         let hash = decodeURI(this.$route.hash)
-        hash = hash
-          ?.replace(/`/g, '')
-          ?.replace(/\./g, '')
-          ?.replace(/\(\)/g, '')
-          ?.toLowerCase()
-        document.querySelector(hash) &&
-          document
-            .querySelector(hash)
-            .scrollIntoView({ block: 'center', inline: 'center' })
+        hash = hash?.replace(/`/g, '')?.replace(/\./g, '')?.replace(/\(\)/g, '')
+        hash = hash ? hash.toLowerCase() : ''
+        if (hash) {
+          document.querySelector(hash) &&
+            document
+              .querySelector(hash)
+              .scrollIntoView({ block: 'center', inline: 'center' })
+        }
       }
     },
   },

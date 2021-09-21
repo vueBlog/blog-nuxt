@@ -82,7 +82,7 @@ export default {
       firstAuthor: 'aside/getFirstAuthor',
     }),
     isList() {
-      return this.$route.name.toLowerCase() === 'list'
+      return this.$route.name && this.$route.name.toLowerCase() === 'list'
     },
     asideListShow() {
       return this.isList
@@ -90,7 +90,7 @@ export default {
         : this.asideList
     },
     isAbout() {
-      return this.$route.name.toLowerCase() === 'about'
+      return this.$route.name && this.$route.name.toLowerCase() === 'about'
     },
     activeName() {
       return this.$route.query.author * 1 || this.firstAuthor
@@ -104,7 +104,7 @@ export default {
   watch: {
     $route: {
       handler(val) {
-        if (val.name.toLowerCase() === 'about') {
+        if (val.name && val.name.toLowerCase() === 'about') {
           !this.asideAuthor.length &&
             this.$store.dispatch('aside/getAuthorList')
         } else {
