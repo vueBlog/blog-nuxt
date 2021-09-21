@@ -173,7 +173,7 @@ export default {
       this.apiArticleListMethod()
     },
     '$route.query.original'(value) {
-      this.justOriginal = value || false
+      this.justOriginal = value === 'true' || false
       this.apiArticleListMethod()
     },
     '$route.query.order'(value) {
